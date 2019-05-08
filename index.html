@@ -114,9 +114,10 @@
           this.setState(prevState => ({ modalActive: !prevState.modalActive }))
         }
         handleRemoveEmployee = id => {
-          const { list } = this.state
+          const { list, listBackup } = this.state
           const listWithoutEmployee = list.filter(employee => employee.id !== id)
-          this.setState({ list: listWithoutEmployee })
+          const listBackupWithoutEmployee = listBackup.filter(employee => employee.id !== id)
+          this.setState({ list: listWithoutEmployee, listBackup: listBackupWithoutEmployee })
         }
         handleDropdownActive = () =>
           this.setState(prevState => ({ dropdownActive: !prevState.dropdownActive }))
